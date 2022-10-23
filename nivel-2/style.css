@@ -30,8 +30,13 @@ body{
 }
 
 .basket{
+<<<<<<< HEAD
+    width: 100px;
+    height: 100px;
+=======
     width: 120px;
     height: 95px;
+>>>>>>> 182d1244d96a17873eca8f8ca3acb692044a6613
     position: absolute;
     bottom: 15px;
     left: calc(50% - 25px);
@@ -81,4 +86,33 @@ body{
 
 .info p{
     color: rgb(84, 84, 84);
+<<<<<<< HEAD
 }
+
+#hidden{
+    position: absolute;
+    width: 1250px;
+    top: 5px;
+    border-radius: 30px;
+    align-items: center;
+    
+}
+
+#timer{
+    width: 28px;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.452);
+    padding: 10px;
+    border: 1px rgba(169, 169, 169, 0.504) solid;
+    border-radius: 10px;
+    margin: 10px;
+    bottom: 655px;
+    right: 0%;
+    display: inline-block;
+}
+
+
+ 
+=======
+}
+>>>>>>> 182d1244d96a17873eca8f8ca3acb692044a6613

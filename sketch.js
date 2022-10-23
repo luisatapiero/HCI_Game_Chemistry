@@ -174,7 +174,7 @@ function draw() {
                 //background(bgCompound5);
                 notebook.resize(1214, 683);
                 image(notebook, 100, 50);
-                puntaje -= 2;
+                
     
                 //fill(0);
                 //text((getFormattedValue(answerList)), 246, 695);

@@ -1,7 +1,7 @@
 //Emmet
 const wordE1 = document.getElementById('word');
 const wrongLettersE1 = document.getElementById('wrong-letters');
-const pointsContainer = document.querySelector('.points');
+const pointsContainer = document.querySelector('.score');
 const playAgainBtn = document.getElementById('play-button');
 const popup = document.getElementById('popup-container');
 const notification = document.getElementById('notification-container');
@@ -17,7 +17,8 @@ const words = [
     {word: 'carbono', img: './images/image3.png'},
     {word: 'glicerina', img: './images/image4.png'}
 ];
-let points = 0;
+let points = parseInt(localStorage.getItem("score")) ;
+
 updatePoints();
 let selectedWord = "";
 selectWord(Math.floor(Math.random() * words.length));
@@ -25,6 +26,19 @@ selectWord(Math.floor(Math.random() * words.length));
 const correctLetters = [];
 const wrongLetters = [];
 
+<<<<<<< HEAD
+
+
+//cambiar de nivel
+
+function changeLevelScore() {
+    window.location.href = '/nivel-score';
+}
+
+function saveScore() {
+    localStorage.setItem("score", points);
+    
+=======
 //cambiar instrucciones
 instructionScreen.onclick = function(){
     let myInstruction = instructionScreen.getAttribute('src');
@@ -34,12 +48,16 @@ instructionScreen.onclick = function(){
     else{
         instructionScreen.setAttribute('src', "instruction")
     }
+>>>>>>> 182d1244d96a17873eca8f8ca3acb692044a6613
 }
 
 
 //Mostrar la palabra en las lineas
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 182d1244d96a17873eca8f8ca3acb692044a6613
 function displayWord(){
     wordE1.innerHTML = `
     ${selectedWord.split('').map(
@@ -104,8 +122,20 @@ function countdown(minutes, seconds) {
     tick();
 }
 
+<<<<<<< HEAD
+countdown(1, 05);
+
+function changeLevel(){
+    if((countdown) === 0){ 
+    }
+    else{
+       changeLevelScore() 
+    }   
+}
+=======
 countdown(5, 05);
 
+>>>>>>> 182d1244d96a17873eca8f8ca3acb692044a6613
 
 //Mostrar la notificación
 function showNotification(){
@@ -124,8 +154,13 @@ function selectWord(index) {
 //shuffledWord.innerText = `${selectedWord.split("").sort(() => (Math.random() - 0.5)).join("")}`;
 }
 
+
+
 function updatePoints() {
+    pointsContainer.innerHTML = "";
     pointsContainer.innerHTML = "" + points + " puntos";
+    
+    
 }
 
 //Todas las letras
@@ -167,4 +202,3 @@ playAgainBtn.addEventListener('click', () => {
 });
 
 displayWord();
-
