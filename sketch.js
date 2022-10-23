@@ -9,6 +9,11 @@ let bgCompound3;
 let bgCompound4;
 let bgCompound5;
 
+let instructions;
+
+let showInstructions;
+
+let spriteGoodResult = [];
 
 
 let matraz;
@@ -29,11 +34,18 @@ function setup() {
     rectMode(CENTER);
     textAlign(CENTER);
 
+    puntaje = 0;
+
+    frameRate(30);
+
+    
+
     bgCompound1 = loadImage("./img/Agua.png");
     bgCompound2 = loadImage("./img/Glicerina.png");
     bgCompound3 = loadImage("./img/Carbomero.png");
     bgCompound4 = loadImage("./img/Trietanolamina.png");
     bgCompound5 = loadImage("./img/Alcohol.png");
+    instructions = loadImage("./img/cuaderno.png");
     //prueba = loadImage("./img/prueba.png");
 
     matraz = loadImage("./img/matraz.png");
@@ -48,35 +60,57 @@ function setup() {
 
 function draw() {
     //background(220);
+
+   /*for (let i = 1; i < spriteGoodResult.length; i++) {
+        spriteGoodResult.push(loadImage("./img/matraz(' +i+ ').png"));
+    }*/
+
     switch (pantalla) {
+
+        
         case 1:
             imageMode(CORNER);
             background(bgCompound1);
             //if(answerList.length > 0){
                 fill(0);                
-                text((getFormattedValue(answerList)),246, 695);
+                text((getFormattedValue(answerList)),246, 695);    
 
 
             break;
         case 2:
 
-            bgCompound2.resize(1920, 1080);
-            image(bgCompound2, 640, 370);
+            imageMode(CORNER);
+            background(bgCompound2);
+
+            fill(0);                
+            text((getFormattedValue(answerList)),246, 695);
 
             break;
         case 3:
-            bgCompound3.resize(1920, 1080);
-            image(bgCompound3, 640, 370);
+            imageMode(CORNER);
+            background(bgCompound3);
+
+            fill(0);                
+            text((getFormattedValue(answerList)),246, 695);
+
             break;
 
         case 4:
-            bgCompound4.resize(1920, 1080);
-            image(bgCompound4, 640, 370);
+            imageMode(CORNER);
+            background(bgCompound4);
+
+            fill(0);                
+            text((getFormattedValue(answerList)),246, 695);
+
             break;
 
         case 5:
-            bgCompound5.resize(1920, 1080);
-            image(bgCompound5, 640, 370);
+            imageMode(CORNER);
+            background(bgCompound5);
+
+            fill(0);                
+            text((getFormattedValue(answerList)),246, 695);
+
             break;
     }
 
@@ -86,6 +120,7 @@ function draw() {
 
 function clearAnswerList(){
     answerList = [];
+    image(spriteGoodResult[frameCount % 15], 200, 200, 400, 400);
 }
 
 function mousePressed() {
@@ -93,8 +128,14 @@ function mousePressed() {
     //changeLevel();
 
     if (mouseX > 801 && mouseX < 946 && mouseY > 664 && mouseY < 716) {
-        console.log("borrar");
+        //console.log("borrar");
         clearAnswerList();
+    }
+
+    if (mouseX > 1188 && mouseX < 1385 && mouseY > 384 && mouseY < 685) {
+        checkUserAnswer();
+        console.log(puntaje);
+        
     }
 
     switch (pantalla) {
@@ -113,72 +154,83 @@ function mousePressed() {
                 answerList.push('N');
             }
             if (mouseX > 678 && mouseX < 744 && mouseY > 410 && mouseY < 641) {
-                answerList.push('O');
+                if (mouseIsPressed === true) {
+                    imageMode(CORNER);
+                    background(instructions);
+                  } else {
+                    imageMode(CORNER);
+                    background(bgCompound1);
+                  }
+            }
+
+            if (mouseX > 1267 && mouseX < 1381 && mouseY > 67 && mouseY < 149) {
+                imageMode(CORNER);
+                background(instructions);
             }
 
 
             break;
         case 2:
-            console.log(mouseX + "," + mouseY)
-            if (mouseX > 128 && mouseX < 198 && mouseY > 461 && mouseY < 692) {
-                console.log("Selecciono C");
+            if (mouseX > 101 && mouseX < 167 && mouseY > 410 && mouseY < 641) {
+                answerList.push('C');
             }
-            if (mouseX > 282 && mouseX < 348 && mouseY > 461 && mouseY < 692) {
-                console.log("Selecciono H");
+            if (mouseX > 294 && mouseX < 359 && mouseY > 410 && mouseY < 641) {
+                answerList.push('H');
             }
-            if (mouseX > 436 && mouseX < 501 && mouseY > 461 && mouseY < 692) {
-                console.log("Selecciono N");
+            if (mouseX > 485 && mouseX < 552 && mouseY > 410 && mouseY < 641) {
+                answerList.push('N');
             }
-            if (mouseX > 590 && mouseX < 655 && mouseY > 461 && mouseY < 692) {
-                console.log("Selecciono O");
+            if (mouseX > 678 && mouseX < 744 && mouseY > 410 && mouseY < 641) {
+                answerList.push('O');
             }
+
             break;
 
         case 3:
 
-            if (mouseX > 128 && mouseX < 198 && mouseY > 461 && mouseY < 692) {
-                console.log("Selecciono C");
+            if (mouseX > 101 && mouseX < 167 && mouseY > 410 && mouseY < 641) {
+                answerList.push('C');
             }
-            if (mouseX > 282 && mouseX < 348 && mouseY > 461 && mouseY < 692) {
-                console.log("Selecciono H");
+            if (mouseX > 294 && mouseX < 359 && mouseY > 410 && mouseY < 641) {
+                answerList.push('H');
             }
-            if (mouseX > 436 && mouseX < 501 && mouseY > 461 && mouseY < 692) {
-                console.log("Selecciono N");
+            if (mouseX > 485 && mouseX < 552 && mouseY > 410 && mouseY < 641) {
+                answerList.push('N');
             }
-            if (mouseX > 590 && mouseX < 655 && mouseY > 461 && mouseY < 692) {
-                console.log("Selecciono O");
+            if (mouseX > 678 && mouseX < 744 && mouseY > 410 && mouseY < 641) {
+                answerList.push('O');
             }
             break;
 
         case 4:
 
-            if (mouseX > 128 && mouseX < 198 && mouseY > 461 && mouseY < 692) {
-                console.log("Selecciono C");
+            if (mouseX > 101 && mouseX < 167 && mouseY > 410 && mouseY < 641) {
+                answerList.push('C');
             }
-            if (mouseX > 282 && mouseX < 348 && mouseY > 461 && mouseY < 692) {
-                console.log("Selecciono H");
+            if (mouseX > 294 && mouseX < 359 && mouseY > 410 && mouseY < 641) {
+                answerList.push('H');
             }
-            if (mouseX > 436 && mouseX < 501 && mouseY > 461 && mouseY < 692) {
-                console.log("Selecciono N");
+            if (mouseX > 485 && mouseX < 552 && mouseY > 410 && mouseY < 641) {
+                answerList.push('N');
             }
-            if (mouseX > 590 && mouseX < 655 && mouseY > 461 && mouseY < 692) {
-                console.log("Selecciono O");
+            if (mouseX > 678 && mouseX < 744 && mouseY > 410 && mouseY < 641) {
+                answerList.push('O');
             }
             break;
 
         case 5:
 
-            if (mouseX > 128 && mouseX < 198 && mouseY > 461 && mouseY < 692) {
-                console.log("Selecciono C");
+            if (mouseX > 101 && mouseX < 167 && mouseY > 410 && mouseY < 641) {
+                answerList.push('C');
             }
-            if (mouseX > 282 && mouseX < 348 && mouseY > 461 && mouseY < 692) {
-                console.log("Selecciono H");
+            if (mouseX > 294 && mouseX < 359 && mouseY > 410 && mouseY < 641) {
+                answerList.push('H');
             }
-            if (mouseX > 436 && mouseX < 501 && mouseY > 461 && mouseY < 692) {
-                console.log("Selecciono N");
+            if (mouseX > 485 && mouseX < 552 && mouseY > 410 && mouseY < 641) {
+                answerList.push('N');
             }
-            if (mouseX > 590 && mouseX < 655 && mouseY > 461 && mouseY < 692) {
-                console.log("Selecciono O");
+            if (mouseX > 678 && mouseX < 744 && mouseY > 410 && mouseY < 641) {
+                answerList.push('O');
             }
             break;
 
@@ -190,23 +242,61 @@ function mousePressed() {
 function checkUserAnswer(){
     switch (pantalla) {
         case 1:
-           if (getFormattedValue(array) == 'H2O'){
-            puntaje += 5;
+
+           if (getFormattedValue(answerList) == 'H2O'){
+            puntaje += 10;
+            pantalla ++;
+           } else {
+            puntaje -= 2;
            }
+           clearAnswerList();
+
             break;
         case 2:
+
+            if (getFormattedValue(answerList) == 'C3H8O3'){
+                puntaje += 10;
+                pantalla ++;
+               } else {
+                puntaje -= 2;
+               }
+               clearAnswerList();
 
             break;
 
         case 3:
 
+            if (getFormattedValue(answerList) == 'C3H8O3'){
+                puntaje += 10;
+                pantalla ++;
+               } else {
+                puntaje -= 2;
+               }
+               clearAnswerList();
+
             break;
 
         case 4:
 
+            if (getFormattedValue(answerList) == 'C6H15NO3'){
+                puntaje += 10;
+                pantalla ++;
+               } else {
+                puntaje -= 2;
+               }
+               clearAnswerList();
+
             break;
 
         case 5:
+
+            if (getFormattedValue(answerList) == 'C2H5NO3'){
+                puntaje += 10;
+                pantalla ++;
+               } else {
+                puntaje -= 2;
+               }
+               clearAnswerList();
 
             break;
 
@@ -218,12 +308,11 @@ function checkUserAnswer(){
 function getFormattedValue(array) {
     const reduced = array.reduce((prev, current, index) => {
       if(index === 0) return current;
-    
       if(array[index - 1] === current) {
         if(prev.charAt(prev.length - 1) === current) return prev + '2';
-    
+        
         const amount = parseInt(prev.charAt(prev.length - 1));
-        const newVal = prev.slice(-1) + (amount + 1);
+        const newVal = prev.slice(0, -1) + (amount + 1);
         return newVal;
       }
     
