@@ -8,6 +8,7 @@ const notification = document.getElementById('notification-container');
 const finalMessage = document.getElementById('final-message');
 const shuffledWord = document.getElementById('shuffle-word');
 const figureParts= document.querySelectorAll(".figure-part");
+const instructionScreen = document.querySelectorAll("instruction");
 const wrongLimit = figureParts.length;
 const img = document.getElementById('img');
 const words = [
@@ -24,7 +25,21 @@ selectWord(Math.floor(Math.random() * words.length));
 const correctLetters = [];
 const wrongLetters = [];
 
+//cambiar instrucciones
+instructionScreen.onclick = function(){
+    let myInstruction = instructionScreen.getAttribute('src');
+    if(myInstruction === "game-container"){
+        instructionScreen.setAttribute('div', "game-container");
+    }
+    else{
+        instructionScreen.setAttribute('src', "instruction")
+    }
+}
+
+
 //Mostrar la palabra en las lineas
+
+
 function displayWord(){
     wordE1.innerHTML = `
     ${selectedWord.split('').map(
@@ -65,6 +80,32 @@ function updateWrongLetterE1(){
         updatePoints();
     }
 }
+
+//Contador de tiempo
+
+var timeoutHandle;
+function countdown(minutes, seconds) {
+    function tick() {
+        var counter = document.getElementById("timer");
+        counter.innerHTML =
+            minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+        seconds--;
+        if (seconds >= 0) {
+            timeoutHandle = setTimeout(tick, 1000);
+        } else {
+            if (minutes >= 1) {
+                
+                setTimeout(function () {
+                    countdown(minutes - 1, 59);
+                }, 1000);
+            }
+        }
+    }
+    tick();
+}
+
+countdown(5, 05);
+
 
 //Mostrar la notificación
 function showNotification(){
