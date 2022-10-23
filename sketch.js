@@ -173,6 +173,7 @@ function draw() {
                 //text((getFormattedValue(answerList)), 246, 695);
     
         break;
+
     }
 
     fill(255,255,255);
@@ -201,7 +202,8 @@ function time() {
 
 
     if (min == 0 && sec == 1) {
-        changeLevel2();
+        pantalla = 10;
+        //changeLevel2();
     } 
 }
 
@@ -482,6 +484,8 @@ function checkUserAnswer() {
                 saveScore(puntaje);
                 saveTime(timer);
                 changeLevel2();
+
+
             } else {
                 puntaje -= 5;
             }
