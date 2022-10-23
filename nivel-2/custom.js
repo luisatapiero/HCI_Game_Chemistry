@@ -9,11 +9,7 @@ const goalContainer = document.getElementById('goal');
 const amountContainer = document.getElementById('amount');
 const values = [100, 150, 200, 250];
 const compounds = [
-<<<<<<< HEAD
     {text: "H2O", value: 800},
-=======
-    {text: "H2O", value: 100},
->>>>>>> 182d1244d96a17873eca8f8ca3acb692044a6613
     {text: "C3H402", value: 1500},
     {text: "C2H5OH", value: 750}
 ];
@@ -24,7 +20,6 @@ const colorClasses = {
 }
 var currentCompound = 0;
 var currentAmount = 0;
-<<<<<<< HEAD
 let score = parseInt(localStorage.getItem("score")) ;
 
 
@@ -37,9 +32,6 @@ function saveScore(score) {
     localStorage.setItem("score", score);
 }
 
-=======
-var score = 0;
->>>>>>> 182d1244d96a17873eca8f8ca3acb692044a6613
 
 function updateDisplayedScore() {
     scoreContainer.innerHTML = "";
@@ -142,29 +134,22 @@ function generateElements() {
     
                 if(currentAmount >= compounds[currentCompound].value) {
                     currentAmount = 0;
-<<<<<<< HEAD
                     score += 20;
-=======
-                    score += 10;
->>>>>>> 182d1244d96a17873eca8f8ca3acb692044a6613
+                    updateDisplayedScore();
 
                     if(currentCompound < compounds.length - 1) {
                         currentCompound++;
                         updateDisplayCompounds();
                         updateDisplayGoal();
                     } else {
-<<<<<<< HEAD
                         changeLevel3();
-=======
-                        //Gano
->>>>>>> 182d1244d96a17873eca8f8ca3acb692044a6613
                     }
                 }
 
                 updateDisplaAmount();
             } else {
                 score -= 10;
-                updateDisplayedScore();
+                
             }
         }
 
@@ -179,11 +164,7 @@ function generateElements() {
     }
 
     element.style.bottom = elementBottom + 'px';
-<<<<<<< HEAD
     setTimeout(generateElements, 700)
-=======
-    setTimeout(generateElements, 200)
->>>>>>> 182d1244d96a17873eca8f8ca3acb692044a6613
 }
 generateElements();
 

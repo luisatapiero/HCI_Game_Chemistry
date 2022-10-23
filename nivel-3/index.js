@@ -26,7 +26,6 @@ selectWord(Math.floor(Math.random() * words.length));
 const correctLetters = [];
 const wrongLetters = [];
 
-<<<<<<< HEAD
 
 
 //cambiar de nivel
@@ -38,26 +37,11 @@ function changeLevelScore() {
 function saveScore() {
     localStorage.setItem("score", points);
     
-=======
-//cambiar instrucciones
-instructionScreen.onclick = function(){
-    let myInstruction = instructionScreen.getAttribute('src');
-    if(myInstruction === "game-container"){
-        instructionScreen.setAttribute('div', "game-container");
-    }
-    else{
-        instructionScreen.setAttribute('src', "instruction")
-    }
->>>>>>> 182d1244d96a17873eca8f8ca3acb692044a6613
 }
 
 
 //Mostrar la palabra en las lineas
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 182d1244d96a17873eca8f8ca3acb692044a6613
 function displayWord(){
     wordE1.innerHTML = `
     ${selectedWord.split('').map(
@@ -122,20 +106,18 @@ function countdown(minutes, seconds) {
     tick();
 }
 
-<<<<<<< HEAD
 countdown(1, 05);
 
 function changeLevel(){
     if((countdown) === 0){ 
+
+        changeLevelScore(); 
+
     }
     else{
-       changeLevelScore() 
+       
     }   
 }
-=======
-countdown(5, 05);
-
->>>>>>> 182d1244d96a17873eca8f8ca3acb692044a6613
 
 //Mostrar la notificación
 function showNotification(){

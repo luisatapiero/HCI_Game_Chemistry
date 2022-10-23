@@ -30,13 +30,8 @@ body{
 }
 
 .basket{
-<<<<<<< HEAD
     width: 100px;
     height: 100px;
-=======
-    width: 120px;
-    height: 95px;
->>>>>>> 182d1244d96a17873eca8f8ca3acb692044a6613
     position: absolute;
     bottom: 15px;
     left: calc(50% - 25px);
@@ -86,7 +81,6 @@ body{
 
 .info p{
     color: rgb(84, 84, 84);
-<<<<<<< HEAD
 }
 
 #hidden{
@@ -113,6 +107,3 @@ body{
 
 
  
-=======
-}
->>>>>>> 182d1244d96a17873eca8f8ca3acb692044a6613
