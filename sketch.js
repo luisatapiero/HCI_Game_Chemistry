@@ -9,11 +9,10 @@ let bgCompound4;
 let bgCompound5;
 
 let instructions;
+let instructions2;
 let notebook;
 
 let showInstructions;
-
-let spriteGoodResult = [];
 
 let level;
 let matraz;
@@ -55,10 +54,11 @@ function setup() {
     bgCompound4 = loadImage("./img/Trietanolamina.png");
     bgCompound5 = loadImage("./img/Alcohol.png");
     instructions = loadImage("./img/instrucciones.png");
+    instructions2 = loadImage("./img/instrucciones 3.png");
     notebook = loadImage("./img/cuadernoIns.png");
     portada = loadImage("./img/portada.png");
     aviso = loadImage("./img/aviso.png");
-    //prueba = loadImage("./img/prueba.png");
+    //prueba = loadImage("./img/prueba.png"); 
 
     matraz = loadImage("./img/matraz.png");
     carbono = loadImage("./img/carbono.png");
@@ -102,6 +102,13 @@ function draw() {
 
         case 4:
 
+            imageMode(CORNER);
+            background(instructions2);
+    
+            break;
+
+        case 5:
+
             level = 1;
             imageMode(CORNER);
             background(bgCompound1);
@@ -113,7 +120,7 @@ function draw() {
 
 
             break;
-        case 5:
+        case 6:
             level = 2;
             imageMode(CORNER);
             background(bgCompound2);
@@ -124,7 +131,7 @@ function draw() {
             text((getFormattedValue(answerList)), 400, 695);
 
             break;
-        case 6:
+        case 7:
 
             level = 3;
             imageMode(CORNER);
@@ -137,7 +144,7 @@ function draw() {
 
             break;
 
-        case 7:
+        case 8:
 
             level = 4;
             imageMode(CORNER);
@@ -150,7 +157,7 @@ function draw() {
 
             break;
 
-        case 8:
+        case 9:
             level = 5;
             imageMode(CORNER);
             background(bgCompound5);
@@ -162,7 +169,7 @@ function draw() {
 
             break;
 
-        case 9:
+        case 10:
                 imageMode(CORNER);
                 //background(bgCompound5);
                 notebook.resize(1214, 683);
@@ -202,8 +209,8 @@ function time() {
 
 
     if (min == 0 && sec == 1) {
-        pantalla = 10;
-        //changeLevel2();
+        //pantalla = 11;
+        changeLevel2();
     } 
 }
 
@@ -249,9 +256,17 @@ function mousePressed() {
             }
 
             break;
-
-
+        
         case 4:
+                console.log(mouseX + "," + mouseY)
+                if (mouseX > 1035 && mouseX < 1268 && mouseY > 558 && mouseY < 627) {
+                    pantalla++;
+                }
+    
+            break;
+
+
+        case 5:
 
             console.log(mouseX + "," + mouseY)
 
@@ -282,44 +297,11 @@ function mousePressed() {
             }
         
             if (mouseX > 1267 && mouseX < 1381 && mouseY > 67 && mouseY < 160) {
-                pantalla = 9;
+                pantalla = 10;
             }
 
             break;
-        case 5:
-            if (mouseX > 101 && mouseX < 167 && mouseY > 410 && mouseY < 641) {
-                answerList.push('C');
-            }
-            if (mouseX > 294 && mouseX < 359 && mouseY > 410 && mouseY < 641) {
-                answerList.push('H');
-            }
-            if (mouseX > 485 && mouseX < 552 && mouseY > 410 && mouseY < 641) {
-                answerList.push('N');
-            }
-            if (mouseX > 678 && mouseX < 744 && mouseY > 410 && mouseY < 641) {
-                answerList.push('O');
-            }
-
-
-            if (mouseX > 801 && mouseX < 946 && mouseY > 664 && mouseY < 716) {
-                //console.log("borrar");
-                clearAnswerList();
-            }
-        
-            if (mouseX > 1188 && mouseX < 1385 && mouseY > 384 && mouseY < 685) {
-                checkUserAnswer();
-                console.log(puntaje);
-        
-            }
-        
-            if (mouseX > 1267 && mouseX < 1381 && mouseY > 67 && mouseY < 160) {
-                pantalla = 9;
-            }
-
-            break;
-
         case 6:
-
             if (mouseX > 101 && mouseX < 167 && mouseY > 410 && mouseY < 641) {
                 answerList.push('C');
             }
@@ -333,6 +315,7 @@ function mousePressed() {
                 answerList.push('O');
             }
 
+
             if (mouseX > 801 && mouseX < 946 && mouseY > 664 && mouseY < 716) {
                 //console.log("borrar");
                 clearAnswerList();
@@ -345,7 +328,7 @@ function mousePressed() {
             }
         
             if (mouseX > 1267 && mouseX < 1381 && mouseY > 67 && mouseY < 160) {
-                pantalla = 9;
+                pantalla = 10;
             }
 
             break;
@@ -377,7 +360,7 @@ function mousePressed() {
             }
         
             if (mouseX > 1267 && mouseX < 1381 && mouseY > 67 && mouseY < 160) {
-                pantalla = 9;
+                pantalla = 10;
             }
 
             break;
@@ -409,16 +392,48 @@ function mousePressed() {
             }
         
             if (mouseX > 1267 && mouseX < 1381 && mouseY > 67 && mouseY < 160) {
-                pantalla = 9;
+                pantalla = 10;
             }
 
             break;
 
-            case 9:
+        case 9:
+
+            if (mouseX > 101 && mouseX < 167 && mouseY > 410 && mouseY < 641) {
+                answerList.push('C');
+            }
+            if (mouseX > 294 && mouseX < 359 && mouseY > 410 && mouseY < 641) {
+                answerList.push('H');
+            }
+            if (mouseX > 485 && mouseX < 552 && mouseY > 410 && mouseY < 641) {
+                answerList.push('N');
+            }
+            if (mouseX > 678 && mouseX < 744 && mouseY > 410 && mouseY < 641) {
+                answerList.push('O');
+            }
+
+            if (mouseX > 801 && mouseX < 946 && mouseY > 664 && mouseY < 716) {
+                //console.log("borrar");
+                clearAnswerList();
+            }
+        
+            if (mouseX > 1188 && mouseX < 1385 && mouseY > 384 && mouseY < 685) {
+                checkUserAnswer();
+                console.log(puntaje);
+        
+            }
+        
+            if (mouseX > 1267 && mouseX < 1381 && mouseY > 67 && mouseY < 160) {
+                pantalla = 10;
+            }
+
+            break;
+
+            case 10:
                 console.log(mouseX + "," + mouseY)
             if (mouseX > 196 && mouseX < 240 && mouseY > 117 && mouseY < 159) {
                 //answerList.push('C');
-                pantalla = level+3;
+                pantalla = level+4;
             }
             
             break;
@@ -430,7 +445,7 @@ function mousePressed() {
 
 function checkUserAnswer() {
     switch (pantalla) {
-        case 4:
+        case 5:
 
             if (getFormattedValue(answerList) == 'H2O') {
                 puntaje += 10;
@@ -441,7 +456,7 @@ function checkUserAnswer() {
             clearAnswerList();
 
             break;
-        case 5:
+        case 6:
 
             if (getFormattedValue(answerList) == 'C3H8O3') {
                 puntaje += 10;
@@ -453,7 +468,7 @@ function checkUserAnswer() {
 
             break;
 
-        case 6:
+        case 7:
 
             if (getFormattedValue(answerList) == 'C3H4O2') {
                 puntaje += 10;
@@ -465,7 +480,7 @@ function checkUserAnswer() {
 
             break;
 
-        case 7:
+        case 8:
 
             if (getFormattedValue(answerList) == 'C6H15NO3') {
                 puntaje += 10;
@@ -477,7 +492,7 @@ function checkUserAnswer() {
 
             break;
 
-        case 8:
+        case 9:
 
             if (getFormattedValue(answerList) == 'C2H5OH') {
                 puntaje += 10;
