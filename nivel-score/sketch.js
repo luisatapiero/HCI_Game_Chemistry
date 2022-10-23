@@ -20,5 +20,13 @@ function draw() {
     textStyle(BOLD);
     text('Tu puntuación final fue: ' +score, 700, 410);
     console.log(score);
+
     
+    
+}
+
+function mousePressed(){
+    if (mouseX > 1322 && mouseX < 1473 && mouseY > 661 && mouseY < 701) {
+        console.log('Lo que necesita hacer Cristian');
+    }
 }

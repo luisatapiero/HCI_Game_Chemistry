@@ -108,7 +108,7 @@ function countdown(minutes, seconds) {
 
 countdown(1, 05);
 
-function changeLevel(){
+
     if((countdown) === 0){ 
 
         changeLevelScore(); 
@@ -117,7 +117,6 @@ function changeLevel(){
     else{
        
     }   
-}
 
 //Mostrar la notificación
 function showNotification(){
