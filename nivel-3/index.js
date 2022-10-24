@@ -25,7 +25,7 @@ selectWord(Math.floor(Math.random() * words.length));
 
 const correctLetters = [];
 const wrongLetters = [];
-
+let timer = false;
 
 
 //cambiar de nivel
@@ -34,8 +34,8 @@ function changeLevelScore() {
     window.location.href = '/nivel-score';
 }
 
-function saveScore() {
-    localStorage.setItem("score", points);
+function saveScore(score) {
+    localStorage.setItem("score", score);
     
 }
 
@@ -56,7 +56,7 @@ function displayWord(){
 
     const innerWord = wordE1.innerText.replace(/\n/g, '');
     if(innerWord === selectedWord){
-        points += 10;
+        points += 5;
         updatePoints();
         finalMessage.innerText = 'Felicitaciones sigue la prueba! 😃';
         popup.style.display= 'flex';
@@ -78,7 +78,7 @@ function updateWrongLetterE1(){
     if(wrongLetters.length === wrongLimit){
         finalMessage.innerText = 'Perdiste. 😕';
         popup.style.display = 'flex';
-        points -= 5;
+        points -= 10;
         updatePoints();
     }
 }
@@ -102,21 +102,18 @@ function countdown(minutes, seconds) {
                 }, 1000);
             }
         }
+
+        
+        if(minutes == 0 && seconds == -1){
+            timer = true;
+            changeLevelScore();
+            saveScore(points);
+        }
     }
     tick();
 }
 
 countdown(1, 05);
-
-
-    if((countdown) === 0){ 
-
-        changeLevelScore(); 
-
-    }
-    else{
-       
-    }   
 
 //Mostrar la notificación
 function showNotification(){

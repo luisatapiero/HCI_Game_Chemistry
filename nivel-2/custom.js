@@ -100,10 +100,18 @@ function countdown(minutes, seconds) {
                 }, 1000);
             }
         }
+
+        
+        if(minutes == 0 && seconds == -1){
+            timer = true;
+            changeLevelScore();
+            saveScore(score);
+        }
     }
     tick();
 }
-countdown(5, 10);
+
+countdown(1, 05);
 
 
 function generateElements() {
@@ -134,7 +142,7 @@ function generateElements() {
     
                 if(currentAmount >= compounds[currentCompound].value) {
                     currentAmount = 0;
-                    score += 20;
+                    score += 10;
                     updateDisplayedScore();
 
                     if(currentCompound < compounds.length - 1) {
@@ -143,12 +151,13 @@ function generateElements() {
                         updateDisplayGoal();
                     } else {
                         changeLevel3();
+                        saveScore(score);
                     }
                 }
 
                 updateDisplaAmount();
             } else {
-                score -= 10;
+                score -= 5;
                 
             }
         }
