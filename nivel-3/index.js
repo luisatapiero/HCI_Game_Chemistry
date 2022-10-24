@@ -10,6 +10,7 @@ const shuffledWord = document.getElementById('shuffle-word');
 const figureParts= document.querySelectorAll(".figure-part");
 const instructionScreen = document.querySelectorAll("instruction");
 const wrongLimit = figureParts.length;
+
 const img = document.getElementById('img');
 const words = [
     {word: 'carbomero', img: './images/image1.png'},
@@ -25,7 +26,7 @@ selectWord(Math.floor(Math.random() * words.length));
 
 const correctLetters = [];
 const wrongLetters = [];
-
+const limitWords =[];
 
 
 //cambiar de nivel
@@ -34,7 +35,7 @@ function changeLevelScore() {
     window.location.href = '/nivel-score';
 }
 
-function saveScore() {
+function saveScore(score) {
     localStorage.setItem("score", points);
     
 }
@@ -112,6 +113,7 @@ countdown(1, 05);
     if((countdown) === 0){ 
 
         changeLevelScore(); 
+        console.log(score)
 
     }
     else{

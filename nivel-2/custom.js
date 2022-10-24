@@ -143,6 +143,7 @@ function generateElements() {
                         updateDisplayGoal();
                     } else {
                         changeLevel3();
+                        saveScore(score);
                     }
                 }
 
