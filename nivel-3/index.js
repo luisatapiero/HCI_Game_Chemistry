@@ -10,7 +10,6 @@ const shuffledWord = document.getElementById('shuffle-word');
 const figureParts= document.querySelectorAll(".figure-part");
 const instructionScreen = document.querySelectorAll("instruction");
 const wrongLimit = figureParts.length;
-
 const img = document.getElementById('img');
 const words = [
     {word: 'carbomero', img: './images/image1.png'},
@@ -26,11 +25,7 @@ selectWord(Math.floor(Math.random() * words.length));
 
 const correctLetters = [];
 const wrongLetters = [];
-<<<<<<< HEAD
 let timer = false;
-=======
-const limitWords =[];
->>>>>>> 5b0e7f154c891430ac10a35dea654da6e2d407b7
 
 
 //cambiar de nivel
@@ -40,11 +35,7 @@ function changeLevelScore() {
 }
 
 function saveScore(score) {
-<<<<<<< HEAD
     localStorage.setItem("score", score);
-=======
-    localStorage.setItem("score", points);
->>>>>>> 5b0e7f154c891430ac10a35dea654da6e2d407b7
     
 }
 
@@ -65,7 +56,7 @@ function displayWord(){
 
     const innerWord = wordE1.innerText.replace(/\n/g, '');
     if(innerWord === selectedWord){
-        points += 5;
+        points += 3;
         updatePoints();
         finalMessage.innerText = 'Felicitaciones sigue la prueba! 😃';
         popup.style.display= 'flex';
@@ -124,20 +115,6 @@ function countdown(minutes, seconds) {
 
 countdown(1, 05);
 
-<<<<<<< HEAD
-=======
-
-    if((countdown) === 0){ 
-
-        changeLevelScore(); 
-        console.log(score)
-
-    }
-    else{
-       
-    }   
-
->>>>>>> 5b0e7f154c891430ac10a35dea654da6e2d407b7
 //Mostrar la notificación
 function showNotification(){
     notification.classList.add('show');

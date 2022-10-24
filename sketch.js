@@ -220,7 +220,7 @@ function clearAnswerList() {
 }
 
 function mousePressed() {
-    saveScore(100);
+    //saveScore(100);
     //changeLevel();
 
 
@@ -434,6 +434,7 @@ function mousePressed() {
             if (mouseX > 196 && mouseX < 240 && mouseY > 117 && mouseY < 159) {
                 //answerList.push('C');
                 pantalla = level+4;
+                puntaje -= 5;
             }
             
             break;
